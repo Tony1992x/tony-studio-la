@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TONY STUDIO LA</title>
+  <meta name="description" content="Premium DJ studio in Santa Monica. 2x CDJ-3000 and DJM-V10. Fast booking and clean setup.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #C65A2E;
+      --bg: #f5f5f3;
+      --surface: #ffffff;
+      --surface-soft: #f0f0ed;
+      --text: #101010;
+      --muted: #5f5f5b;
+      --line: #deded8;
+      --shadow: 0 24px 60px rgba(16, 16, 16, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Archivo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(198, 90, 46, 0.08), transparent 22%),
+        linear-gradient(180deg, #f6f6f4 0%, #f0efeb 100%);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 18px 0 56px;
+    }
+
+    .navbar,
+    .hero-copy,
+    .hero-media,
+    .equipment-card,
+    .info-card,
+    .booking-panel,
+    .contact-panel {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .navbar {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 20px;
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(198, 90, 46, 0.12);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #fffaf7;
+    }
+
+    .button-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 22px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-media,
+    .booking-panel,
+    .contact-panel {
+      border-radius: var(--radius-xl);
+      padding: 30px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      max-width: 11ch;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 10ch;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .lead,
+    .section-head p,
+    .info-card p,
+    .equipment-card p,
+    .booking-note,
+    .contact-note,
+    .field-note {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .lead {
+      margin-top: 18px;
+      max-width: 54ch;
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .hero-media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 520px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(16, 16, 16, 0.02), rgba(16, 16, 16, 0)),
+        #ffffff;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    section {
+      margin-top: 26px;
+    }
+
+    .section-head {
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      max-width: 58ch;
+      margin-top: 12px;
+    }
+
+    .equipment-grid,
+    .info-grid,
+    .service-grid,
+    .reels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .equipment-card,
+    .info-card,
+    .service-card,
+    .reel-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .equipment-visual {
+      padding: 22px;
+      background: var(--surface-soft);
+      border-bottom: 1px solid var(--line);
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .equipment-visual img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+    }
+
+    .equipment-body,
+    .info-card {
+      padding: 22px;
+    }
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      padding: 22px;
+      gap: 18px;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .service-card.active {
+      border-color: rgba(198, 90, 46, 0.45);
+      box-shadow: 0 26px 64px rgba(198, 90, 46, 0.14);
+    }
+
+    .service-image {
+      min-height: 240px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #f7f3ed 0%, #f2eee7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+    }
+
+    .service-copy {
+      display: grid;
+      gap: 12px;
+    }
+
+    .service-price {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+
+    .service-copy p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .accent-strip {
+      margin-top: 14px;
+      width: calc(100% + 56px);
+      margin-left: -28px;
+      margin-right: -28px;
+      min-height: 92px;
+      padding: 18px 32px;
+      border-radius: 0;
+      background: #F4B164;
+      color: #3b2a10;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .accent-strip p {
+      margin: 0;
+      font-size: clamp(1.5rem, 3.8vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .reel-card {
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .reel-frame {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      border-radius: 26px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(16, 16, 16, 0.04), rgba(16, 16, 16, 0.12)),
+        linear-gradient(180deg, #f3eee6 0%, #ded6ca 100%);
+    }
+
+    .reel-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.92) contrast(1.02);
+    }
+
+    .reel-frame::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 44%;
+      background: linear-gradient(180deg, transparent, rgba(16, 16, 16, 0.42));
+    }
+
+    .reel-badge,
+    .reel-play,
+    .reel-caption {
+      position: absolute;
+      z-index: 1;
+    }
+
+    .reel-badge {
+      top: 14px;
+      left: 14px;
+      min-height: 34px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(255, 250, 247, 0.92);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .reel-play {
+      left: 14px;
+      bottom: 14px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(255, 250, 247, 0.92);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.82rem;
+    }
+
+    .reel-caption {
+      right: 16px;
+      left: 86px;
+      bottom: 18px;
+      color: #fffaf7;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .reel-card h3 {
+      margin-top: 16px;
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
+
+    .equipment-name {
+      display: block;
+      margin-top: 10px;
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+      line-height: 1.2;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .booking-top,
+    .booking-summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .price-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(198, 90, 46, 0.1);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .plan-grid,
+    .calendar-days,
+    .calendar-grid,
+    .slot-grid,
+    .contact-grid,
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .plan-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .plan-button,
+    .calendar-cell,
+    .slot-button,
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    .plan-button,
+    .calendar-cell,
+    .slot-button {
+      min-height: 52px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .plan-button.active,
+    .calendar-cell.active,
+    .slot-button.active {
+      background: var(--accent);
+      color: #fffaf7;
+      border-color: var(--accent);
+    }
+
+    .calendar-days,
+    .calendar-grid {
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+
+    .calendar-days {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    .calendar-cell.booked,
+    .slot-button.booked {
+      opacity: 0.42;
+      cursor: not-allowed;
+    }
+
+    .slot-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 16px;
+    }
+
+    .booking-summary {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .booking-summary strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 1rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .info-mini {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .info-mini strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .field-wide {
+      grid-column: span 2;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    input {
+      min-height: 52px;
+      padding: 0 16px;
+      font-size: 0.95rem;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(198, 90, 46, 0.12);
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .equipment-grid,
+      .info-grid,
+      .booking-layout,
+      .contact-grid,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-media {
+        min-height: 360px;
+      }
+
+      .slot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(1180px, calc(100% - 18px));
+      }
+
+      .navbar,
+      .hero-copy,
+      .hero-media,
+      .booking-panel,
+      .contact-panel {
+        padding: 20px;
+      }
+
+      .accent-strip {
+        width: calc(100% + 36px);
+        margin-left: -18px;
+        margin-right: -18px;
+      }
+
+      .hero-actions,
+      .plan-grid,
+      .slot-grid,
+      .form-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field-wide {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="navbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span>TONY STUDIO LA</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#setup">Equipment</a>
+        <a href="#services">Services</a>
+        <a href="#reels">Reels</a>
+        <a href="#why">Why Book</a>
+        <a href="#booking">Booking</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="button button-primary" href="#booking">Book Now</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Premium DJ studio in Santa Monica</p>
+        <h1>Pro Studio<br>club experionce</h1>
+        <p class="lead">
+          2x CDJ-3000 + DJM-V10. Private room, pro equipment, fast booking, Santa Monica.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#booking">Book Now</a>
+          <a class="button button-secondary" href="#setup">View Setup</a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <img src="assets/images/hero-studio.png" alt="Tony Studio LA interior with vintage speakers and DJ setup">
+      </div>
+    </section>
+
+    <section id="setup">
+      <div class="section-head">
+        <p class="eyebrow">Equipment</p>
+        <div class="accent-strip">
+          <p>Your Studio Your Home</p>
+        </div>
+      </div>
+
+      <div class="equipment-grid">
+        <article class="equipment-card">
+          <div class="equipment-visual">
+            <img src="assets/images/pioneer-cdj-3000.webp" alt="Pioneer CDJ-3000 player">
+          </div>
+          <div class="equipment-body">
+            <p class="eyebrow">Deck One</p>
+            <h3>CDJ-3000</h3>
+            <span class="equipment-name">Flagship Media Player</span>
+          </div>
+        </article>
+
+        <article class="equipment-card">
+          <div class="equipment-visual" style="min-height: 310px;">
+            <img src="assets/images/pioneer-djm-v10.png" alt="Pioneer DJM-V10 mixer" style="max-height: 260px;">
+          </div>
+          <div class="equipment-body">
+            <p class="eyebrow">Center Mixer</p>
+            <h3>DJM-V10</h3>
+            <span class="equipment-name">Luxury Flagship Mixer</span>
+          </div>
+        </article>
+
+        <article class="equipment-card">
+          <div class="equipment-visual">
+            <img src="assets/images/pioneer-cdj-3000.webp" alt="Pioneer CDJ-3000 player">
+          </div>
+          <div class="equipment-body">
+            <p class="eyebrow">Deck Two</p>
+            <h3>CDJ-3000</h3>
+            <span class="equipment-name">Flagship Media Player</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-head">
+        <p class="eyebrow">Services & Pricing</p>
+        <h2>Clear options with clear pricing.</h2>
+        <p>Each package is visual, simple to compare, and connected to the booking widget below.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card active" data-plan="Studio Hour · 1 Hour" data-price="$40">
+          <div class="service-image">
+            <img src="assets/images/studio-option.png" alt="Studio session option preview">
+          </div>
+          <div class="service-copy">
+            <p class="eyebrow">Option 01</p>
+            <div class="service-price">$40</div>
+            <h3>DJ Set</h3>
+            <p>1 hour in the room. Fast practice session on the main setup.</p>
+          </div>
+        </article>
+
+        <article class="service-card" data-plan="DJ Set + Video + Sound Record · 1 Hour" data-price="$70">
+          <div class="service-image">
+            <img src="assets/images/studio-option.png" alt="DJ set with video and sound recording option">
+          </div>
+          <div class="service-copy">
+            <p class="eyebrow">Option 02</p>
+            <div class="service-price">$70</div>
+            <h3>DJ Set + Video + Sound Record</h3>
+            <p>1 hour with video capture and clean sound recording for SoundCloud and YouTube.</p>
+          </div>
+        </article>
+
+        <article class="service-card" data-plan="DJ Set · 2 Hours" data-price="$70">
+          <div class="service-image">
+            <img src="assets/images/studio-option.png" alt="Two-hour DJ set option">
+          </div>
+          <div class="service-copy">
+            <p class="eyebrow">Option 03</p>
+            <div class="service-price">$70</div>
+            <h3>DJ Set</h3>
+            <p>2 hours in the studio for a longer set, warm-up, and more flow.</p>
+          </div>
+        </article>
+
+        <article class="service-card" data-plan="Full Package · 2 Hours" data-price="$110">
+          <div class="service-image">
+            <img src="assets/images/studio-option.png" alt="Full package studio option">
+          </div>
+          <div class="service-copy">
+            <p class="eyebrow">Option 04</p>
+            <div class="service-price">$110</div>
+            <h3>Full Package</h3>
+            <p>2 hours with DJ set, shooting, and recording for a complete content session.</p>
+          </div>
+        </article>
+
+        <article class="service-card" data-plan="Extra Service · Lighting / Camera / Editing" data-price="Custom">
+          <div class="service-image">
+            <img src="assets/images/pioneer-djm-v10.png" alt="Extra production services for lighting and editing">
+          </div>
+          <div class="service-copy">
+            <p class="eyebrow">Option 05</p>
+            <div class="service-price">Custom</div>
+            <h3>Extra Service</h3>
+            <p>Lighting, camera, and editing add-ons for artists who need more production support.</p>
+          </div>
+        </article>
+
+        <article class="service-card" data-plan="Premium Package · Full Production Setup" data-price="Custom">
+          <div class="service-image">
+            <img src="assets/images/pioneer-cdj-3000.webp" alt="Premium package with full production setup">
+          </div>
+          <div class="service-copy">
+            <p class="eyebrow">Option 06</p>
+            <div class="service-price">Custom</div>
+            <h3>Premium Package</h3>
+            <p>Full production setup for larger sessions that need the most complete studio experience.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="reels">
+      <div class="section-head">
+        <p class="eyebrow">Reels</p>
+        <h2>Let the room speak in a few seconds.</h2>
+        <p>Three vertical content cards so visitors instantly understand the studio vibe, setup, and energy.</p>
+      </div>
+
+      <div class="reels-grid">
+        <article class="reel-card">
+          <div class="reel-frame">
+            <img src="assets/images/studio-setup.jpeg" alt="Vertical reel preview of the full DJ room">
+            <span class="reel-badge">Reel 01</span>
+            <div class="reel-play">Play</div>
+            <div class="reel-caption">Walk in, load up, and start fast.</div>
+          </div>
+          <h3>First impression reel for the room, light, and full setup.</h3>
+        </article>
+
+        <article class="reel-card">
+          <div class="reel-frame">
+            <img src="assets/images/pioneer-djm-v10.png" alt="Vertical reel preview focused on the DJM-V10 mixer">
+            <span class="reel-badge">Reel 02</span>
+            <div class="reel-play">Play</div>
+            <div class="reel-caption">Close-ups of the mixer, controls, and movement.</div>
+          </div>
+          <h3>Gear-focused reel for detail shots, hands, and clean production mood.</h3>
+        </article>
+
+        <article class="reel-card">
+          <div class="reel-frame">
+            <img src="assets/images/pioneer-cdj-3000.webp" alt="Vertical reel preview focused on the CDJ-3000 player">
+            <span class="reel-badge">Reel 03</span>
+            <div class="reel-play">Play</div>
+            <div class="reel-caption">Quick energy cut for artists posting content.</div>
+          </div>
+          <h3>Short performance reel that sells the vibe in one fast scroll.</h3>
+        </article>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="section-head">
+        <p class="eyebrow">Why Book This Studio</p>
+        <h2>Easy to understand. Easy to book.</h2>
+      </div>
+
+      <div class="info-grid">
+        <article class="info-card">
+          <strong>Private room</strong>
+          <p>Calm, focused studio time without distractions.</p>
+        </article>
+        <article class="info-card">
+          <strong>Pro equipment</strong>
+          <p>2x CDJ-3000 and DJM-V10 in one clear premium setup.</p>
+        </article>
+        <article class="info-card">
+          <strong>Fast booking</strong>
+          <p>Pick the package, choose the hour, and send the request fast.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="section-head">
+        <p class="eyebrow">Booking</p>
+        <h2>Understand and book fast.</h2>
+        <p>Booking is the priority. The user should immediately understand the options and available time.</p>
+      </div>
+
+      <div class="booking-layout">
+        <div class="booking-panel">
+          <div class="booking-top">
+            <div>
+              <p class="eyebrow">Booking Widget</p>
+              <h3>TONY STUDIO LA</h3>
+            </div>
+            <div class="price-pill">From $40</div>
+          </div>
+
+          <div class="plan-grid">
+            <button class="plan-button active" type="button" data-plan="Studio Hour · 1 Hour" data-price="$40">Studio Hour · $40</button>
+            <button class="plan-button" type="button" data-plan="DJ Set + Video + Sound Record · 1 Hour" data-price="$70">1H Content · $70</button>
+            <button class="plan-button" type="button" data-plan="DJ Set · 2 Hours" data-price="$70">2H DJ Set · $70</button>
+            <button class="plan-button" type="button" data-plan="Full Package · 2 Hours" data-price="$110">Full Package · $110</button>
+          </div>
+
+          <p class="booking-note" style="margin-top:18px;">Choose a day and available hour below.</p>
+
+          <div class="calendar-days">
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+            <span>Sun</span>
+          </div>
+
+          <div class="calendar-grid">
+            <button class="calendar-cell" type="button">18</button>
+            <button class="calendar-cell" type="button">19</button>
+            <button class="calendar-cell booked" type="button" disabled>20</button>
+            <button class="calendar-cell active" type="button">21</button>
+            <button class="calendar-cell" type="button">22</button>
+            <button class="calendar-cell booked" type="button" disabled>23</button>
+            <button class="calendar-cell" type="button">24</button>
+          </div>
+
+          <div class="slot-grid">
+            <button class="slot-button" type="button">10:00</button>
+            <button class="slot-button" type="button">11:00</button>
+            <button class="slot-button active" type="button">12:00</button>
+            <button class="slot-button" type="button">13:00</button>
+            <button class="slot-button" type="button">14:00</button>
+            <button class="slot-button" type="button">15:00</button>
+            <button class="slot-button booked" type="button" disabled>16:00</button>
+            <button class="slot-button" type="button">17:00</button>
+          </div>
+
+          <div class="booking-summary">
+            <div>
+              <p class="eyebrow">Selected</p>
+              <strong id="selected-booking">Studio Hour · 1 Hour · March 21 · 12:00 · $40</strong>
+            </div>
+            <a class="button button-primary" href="#contact">Book Now</a>
+          </div>
+        </div>
+
+        <div class="contact-panel" id="contact">
+          <p class="eyebrow">Contact</p>
+          <h3>Send your details and lock the time.</h3>
+          <p class="contact-note" style="margin-top:12px;">Required: Full Name, Email, Phone Number. Optional: Stage Name, Instagram.</p>
+
+          <div class="contact-grid">
+            <div class="info-mini">
+              <strong>Required</strong>
+              <span class="field-note">Full Name, Email, Phone Number</span>
+            </div>
+            <div class="info-mini">
+              <strong>Optional</strong>
+              <span class="field-note">Stage Name, Instagram</span>
+            </div>
+            <div class="info-mini">
+              <strong>Next</strong>
+              <span class="field-note">Confirmation, location, payment</span>
+            </div>
+          </div>
+
+          <form id="booking-form">
+            <div class="form-grid">
+              <div class="field-wide">
+                <label for="name">Full Name</label>
+                <input id="name" name="full-name" type="text" placeholder="Your full name" required>
+              </div>
+              <div class="field-wide">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+              <div class="field-wide">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" placeholder="+1 (000) 000-0000" required>
+              </div>
+              <div>
+                <label for="stage-name">Stage Name</label>
+                <input id="stage-name" name="stage-name" type="text" placeholder="Optional">
+              </div>
+              <div>
+                <label for="instagram">Instagram</label>
+                <input id="instagram" name="instagram" type="text" placeholder="@yourname">
+              </div>
+            </div>
+
+            <input id="date" name="date" type="hidden">
+            <input id="hours" name="hours" type="hidden">
+            <input id="notes" name="notes" type="hidden">
+
+            <div class="hero-actions" style="margin-top:20px;">
+              <button class="button button-primary" id="booking-submit" type="submit">Book Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module">
+    import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+    const supabaseUrl = "https://dbggnthbgydfflwmnvai.supabase.co";
+    const supabaseKey = "sb_publishable_o87pPDb4b92TsjN9KG-wgQ_-8rm-Ha1";
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const planButtons = document.querySelectorAll(".plan-button");
+    const serviceCards = document.querySelectorAll(".service-card");
+    const dateButtons = document.querySelectorAll(".calendar-cell:not(.booked)");
+    const slotButtons = document.querySelectorAll(".slot-button:not(.booked)");
+    const selectedBooking = document.getElementById("selected-booking");
+    const bookingForm = document.getElementById("booking-form");
+    const submitButton = document.getElementById("booking-submit");
+    const dateField = document.getElementById("date");
+    const hoursField = document.getElementById("hours");
+    const notesField = document.getElementById("notes");
+
+    let activePlan = "Studio Hour · 1 Hour";
+    let activePrice = "$40";
+    let activeDate = "21";
+    let activeTime = "12:00";
+
+    const getHoursFromPlan = (plan) => {
+      const match = plan.match(/(\d+)\s*Hour/i);
+      return match ? Number.parseInt(match[1], 10) : 1;
+    };
+
+    const syncBookingFields = () => {
+      if (dateField) {
+        dateField.value = `2026-03-${String(activeDate).padStart(2, "0")}`;
+      }
+
+      if (hoursField) {
+        hoursField.value = String(getHoursFromPlan(activePlan));
+      }
+
+      if (notesField) {
+        const stageName = document.getElementById("stage-name")?.value?.trim();
+        const instagram = document.getElementById("instagram")?.value?.trim();
+        const extras = [
+          `Plan: ${activePlan}`,
+          `Time: ${activeTime}`,
+          `Price: ${activePrice}`,
+          stageName ? `Stage Name: ${stageName}` : "",
+          instagram ? `Instagram: ${instagram}` : "",
+        ].filter(Boolean);
+
+        notesField.value = extras.join(" | ");
+      }
+    };
+
+    const updateSummary = () => {
+      selectedBooking.textContent = `${activePlan} · March ${activeDate} · ${activeTime} · ${activePrice}`;
+      syncBookingFields();
+    };
+
+    const syncSelection = () => {
+      planButtons.forEach((button) => {
+        const isMatch = button.dataset.plan === activePlan;
+        button.classList.toggle("active", isMatch);
+      });
+
+      serviceCards.forEach((card) => {
+        const isMatch = card.dataset.plan === activePlan;
+        card.classList.toggle("active", isMatch);
+      });
+    };
+
+    planButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activePlan = button.dataset.plan || activePlan;
+        activePrice = button.dataset.price || activePrice;
+        syncSelection();
+        updateSummary();
+      });
+    });
+
+    serviceCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        activePlan = card.dataset.plan || activePlan;
+        activePrice = card.dataset.price || activePrice;
+        syncSelection();
+        updateSummary();
+        document.getElementById("booking")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    dateButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        dateButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        activeDate = button.textContent;
+        updateSummary();
+      });
+    });
+
+    slotButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        slotButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        activeTime = button.textContent;
+        updateSummary();
+      });
+    });
+
+    document.getElementById("stage-name")?.addEventListener("input", syncBookingFields);
+    document.getElementById("instagram")?.addEventListener("input", syncBookingFields);
+
+    const sendBooking = async () => {
+      syncBookingFields();
+
+      const { error } = await supabase
+        .from("bookings")
+        .insert([
+          {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            date: document.getElementById("date").value,
+            hours: Number.parseInt(document.getElementById("hours").value, 10),
+            notes: document.getElementById("notes").value,
+          }
+        ]);
+
+      if (error) {
+        alert("Error");
+        console.log(error);
+        return false;
+      }
+
+      alert("Booking sent!");
+      bookingForm?.reset();
+      syncBookingFields();
+      return true;
+    };
+
+    bookingForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!bookingForm.reportValidity()) {
+        return;
+      }
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
+      try {
+        await sendBooking();
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Book Now";
+        }
+      }
+    });
+
+    window.sendBooking = sendBooking;
+    syncSelection();
+    updateSummary();
+  </script>
+</body>
+</html>

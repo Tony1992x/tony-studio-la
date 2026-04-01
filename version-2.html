@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TONY STUDIO LA - Version 2</title>
+  <meta name="description" content="Tony Studio LA editorial landing concept.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2eadf;
+      --panel: rgba(255, 249, 240, 0.82);
+      --line: rgba(73, 43, 28, 0.14);
+      --text: #221712;
+      --muted: #665449;
+      --primary: #c65a2e;
+      --secondary: #d46a3a;
+      --green: #5b8a5b;
+      --shadow: 0 24px 60px rgba(77, 44, 20, 0.12);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Archivo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(212, 106, 58, 0.18), transparent 28%),
+        linear-gradient(180deg, #f4ede3 0%, #eadfce 100%);
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0 48px;
+    }
+
+    .header,
+    .panel,
+    .service-card,
+    .feature,
+    .media-card,
+    .booking-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    .header {
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 20px;
+      border-radius: 999px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 0 6px rgba(198, 90, 46, 0.12);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a,
+    .button {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff5ef;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      margin-top: 22px;
+    }
+
+    .panel {
+      border-radius: 34px;
+      padding: 30px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    p { margin: 0; }
+
+    h1 {
+      font-size: clamp(3.2rem, 8vw, 6.8rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      max-width: 8ch;
+    }
+
+    .lead {
+      margin-top: 20px;
+      max-width: 52ch;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .hero-actions,
+    .feature-grid,
+    .services,
+    .content-grid,
+    .contact-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-actions {
+      grid-template-columns: repeat(2, minmax(0, max-content));
+      margin-top: 26px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .feature {
+      border-radius: 18px;
+      padding: 16px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--green);
+      text-align: center;
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 14px;
+    }
+
+    .media-card {
+      overflow: hidden;
+      border-radius: 34px;
+      min-height: 560px;
+      position: relative;
+    }
+
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-overlay {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(27, 18, 12, 0.58);
+      color: #fff5ef;
+      line-height: 1.45;
+    }
+
+    .stat-row,
+    .booking-top,
+    .summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-row .panel {
+      flex: 1;
+      min-width: 180px;
+      padding: 18px;
+    }
+
+    section { margin-top: 22px; }
+
+    .section-head {
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      letter-spacing: -0.05em;
+      max-width: 10ch;
+    }
+
+    .section-head p {
+      margin-top: 12px;
+      color: var(--muted);
+      max-width: 54ch;
+      line-height: 1.7;
+    }
+
+    .services,
+    .content-grid,
+    .contact-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .service-card,
+    .booking-card,
+    .contact-card {
+      border-radius: 26px;
+      padding: 22px;
+    }
+
+    .service-card strong,
+    .booking-card strong,
+    .contact-card strong {
+      display: block;
+      margin: 8px 0 10px;
+      font-size: 1.18rem;
+    }
+
+    .service-card p,
+    .contact-card p,
+    .booking-card p,
+    .meta,
+    .muted {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .accent {
+      color: var(--primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+
+    .booking-card-primary {
+      grid-column: span 2;
+    }
+
+    .times {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .time {
+      padding: 14px 10px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.38);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .time.booked {
+      background: rgba(198, 90, 46, 0.1);
+      color: #9b593c;
+    }
+
+    .time.active {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff7f1;
+      border-color: transparent;
+    }
+
+    .content-grid .media-card {
+      min-height: 340px;
+    }
+
+    .contact-card ul {
+      padding-left: 18px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .preview-nav {
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .services,
+      .content-grid,
+      .contact-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-card-primary {
+        grid-column: span 1;
+      }
+
+      .times {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .header {
+        border-radius: 24px;
+        padding: 16px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .media-card {
+        min-height: 360px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span>TONY STUDIO LA</span>
+      </div>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#setup">Setup</a>
+        <a href="#booking">Booking</a>
+      </nav>
+      <a class="button button-primary" href="#booking">Book Now</a>
+    </header>
+
+    <section class="hero">
+      <div class="panel">
+        <p class="eyebrow">Version 2 · Editorial Luxury</p>
+        <h1>BOOK NOW</h1>
+        <p class="lead">
+          A lighter premium direction. More editorial, more airy, still built around one job:
+          show the flagship setup fast and move people to booking in two or three clicks.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#booking">BOOK NOW</a>
+          <a class="button" href="index.html">See Version 1</a>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature">24/7 Access</div>
+          <div class="feature">Professional Equipment</div>
+          <div class="feature">Easy Booking</div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="media-card">
+          <img src="assets/images/studio-setup.jpeg" alt="Tony Studio LA DJ setup">
+          <div class="media-overlay">
+            2x CDJ-3000 + DJM-V10. Private room. Fast booking. Santa Monica.
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="panel">
+            <p class="accent">Main Setup</p>
+            <strong>CDJ-3000 + DJM-V10</strong>
+          </div>
+          <div class="panel">
+            <p class="accent">From</p>
+            <strong>$40 / hour</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-head">
+        <p class="eyebrow">Services</p>
+        <h2>Clear packages. No long explanation.</h2>
+        <p>Each option stays short, visual, and easy to compare before someone books.</p>
+      </div>
+      <div class="services">
+        <article class="service-card">
+          <span class="accent">Option 01</span>
+          <strong>Studio Hour · $40</strong>
+          <p>One hour on the flagship setup for practice and fast sessions.</p>
+        </article>
+        <article class="service-card">
+          <span class="accent">Option 02</span>
+          <strong>DJ Set + Shooting + Recording · $70</strong>
+          <p>One-hour content package with clean audio and camera support.</p>
+        </article>
+        <article class="service-card">
+          <span class="accent">Option 03</span>
+          <strong>Premium Package · Custom</strong>
+          <p>Lighting, camera, editing, and bigger production support when needed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="setup">
+      <div class="section-head">
+        <p class="eyebrow">The Setup</p>
+        <h2>The setup people actually come for.</h2>
+      </div>
+      <div class="content-grid">
+        <div class="media-card">
+          <img src="assets/images/pioneer-cdj-3000.webp" alt="Pioneer CDJ-3000 player">
+        </div>
+        <div class="media-card">
+          <img src="assets/images/pioneer-djm-v10.png" alt="Pioneer DJM-V10 mixer">
+        </div>
+        <div class="contact-card">
+          <span class="accent">Why this version works</span>
+          <strong>More luxury, less pressure.</strong>
+          <p>
+            This direction feels premium and welcoming. It gives the brand a softer, more polished
+            identity while keeping booking simple.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="section-head">
+        <p class="eyebrow">Booking</p>
+        <h2>Pick a slot and move.</h2>
+      </div>
+      <div class="content-grid">
+        <article class="booking-card booking-card-primary">
+          <div class="booking-top">
+            <div>
+              <span class="accent">Selected</span>
+              <strong>DJ Set · March 21 · 12:00 · $40</strong>
+            </div>
+            <a class="button button-primary" href="#contact">Continue</a>
+          </div>
+          <p class="meta">Booked hours would be disabled in the real calendar step.</p>
+          <div class="times">
+            <div class="time">10:00</div>
+            <div class="time">11:00</div>
+            <div class="time active">12:00</div>
+            <div class="time">13:00</div>
+            <div class="time">14:00</div>
+            <div class="time">15:00</div>
+            <div class="time booked">16:00</div>
+            <div class="time">17:00</div>
+          </div>
+        </article>
+        <article class="booking-card">
+          <span class="accent">Required Fields</span>
+          <strong>Full Name, Email, Phone</strong>
+          <p>Stage Name and Instagram stay optional, exactly as in your rules.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-grid">
+        <article class="contact-card">
+          <span class="accent">Version Feel</span>
+          <strong>Warm, polished, premium</strong>
+          <p>This is the calm luxury version if you want the brand to feel upscale and inviting.</p>
+        </article>
+        <article class="contact-card">
+          <span class="accent">Best For</span>
+          <strong>Brand-led presentation</strong>
+          <p>Good if you want clients to feel trust, atmosphere, and polish before they book.</p>
+        </article>
+        <article class="contact-card">
+          <span class="accent">Next</span>
+          <strong>Move to real calendar</strong>
+          <p>Once you choose a direction, we can wire a proper date/time booking calendar into it.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="preview-nav">
+      <a class="button button-primary" href="versions.html">Back to Version Picker</a>
+    </div>
+  </div>
+</body>
+</html>

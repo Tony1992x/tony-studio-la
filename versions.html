@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TONY STUDIO LA - Version Picker</title>
+  <meta name="description" content="Choose between Tony Studio LA homepage concepts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --surface: #141416;
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #f3eee6;
+      --muted: #bbb2a6;
+      --primary: #c65a2e;
+      --secondary: #d46a3a;
+      --green: #7fc98f;
+      --shadow: 0 30px 70px rgba(0, 0, 0, 0.32);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Archivo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(198, 90, 46, 0.18), transparent 26%),
+        linear-gradient(180deg, #090909 0%, #101011 100%);
+    }
+
+    .page {
+      width: min(1160px, calc(100% - 28px));
+      margin: 0 auto;
+      padding: 30px 0 60px;
+    }
+
+    .hero,
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(20, 20, 22, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 32px;
+      border-radius: 34px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    p { margin: 0; }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+      max-width: 8ch;
+    }
+
+    .hero p:last-child {
+      margin-top: 18px;
+      max-width: 60ch;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 28px;
+    }
+
+    .card h2 {
+      font-size: 1.45rem;
+      margin: 8px 0 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .tag {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .button {
+      display: inline-flex;
+      margin-top: 18px;
+      min-height: 48px;
+      padding: 0 18px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff5ef;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <p class="eyebrow">Tony Studio LA</p>
+      <h1>Choose The Direction</h1>
+      <p>
+        Here are the 3 homepage directions side by side. Open each, check the feel,
+        then we lock one in and move straight to the real booking calendar.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <span class="tag">Version 1</span>
+        <h2>Dark Premium</h2>
+        <p>The strongest luxury feel. Warm dark palette, bold `BOOK NOW`, and balanced branding.</p>
+        <ul>
+          <li>Best overall brand presence</li>
+          <li>Feels premium and serious</li>
+          <li>Good base for future growth</li>
+        </ul>
+        <a class="button" href="index.html">Open Version 1</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">Version 2</span>
+        <h2>Editorial Luxury</h2>
+        <p>A lighter, cleaner direction with softer premium energy and a polished studio look.</p>
+        <ul>
+          <li>More airy and welcoming</li>
+          <li>Feels upscale and polished</li>
+          <li>Still keeps booking simple</li>
+        </ul>
+        <a class="button" href="version-2.html">Open Version 2</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">Version 3</span>
+        <h2>Booking First</h2>
+        <p>The most conversion-focused version, with package choice and time selection pushed immediately.</p>
+        <ul>
+          <li>Fastest path to reservation</li>
+          <li>Modern, direct feel</li>
+          <li>Strong base for calendar work</li>
+        </ul>
+        <a class="button" href="version-3.html">Open Version 3</a>
+      </article>
+    </section>
+  </div>
+</body>
+</html>
