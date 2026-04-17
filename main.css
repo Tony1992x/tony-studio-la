@@ -28,6 +28,7 @@
   --radius-xl: 34px;
   --radius-lg: 24px;
   --radius-md: 18px;
+  --gren: #b3d90b;
 }
 
 * {
@@ -98,7 +99,7 @@ main {
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--gren);
   box-shadow: 0 0 0 4px rgba(227, 163, 58, 0.2);
 }
 

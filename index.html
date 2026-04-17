@@ -21,11 +21,14 @@
       --radius-xl: 32px;
       --radius-lg: 24px;
       --radius-md: 18px;
+      --gren: #b3d90b;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
+.btncol{
+  background:#0bd919 !important;
+}
     body {
       margin: 0;
       font-family: "Archivo", sans-serif;
@@ -341,8 +344,8 @@
       min-height: 92px;
       padding: 18px 32px;
       border-radius: 0;
-      background: #F4B164;
-      color: #3b2a10;
+      background: #919b3a;
+      color: white;
       box-shadow: var(--shadow);
       display: flex;
       align-items: center;
@@ -351,6 +354,7 @@
 
     .accent-strip p {
       margin: 0;
+      color: white;
       font-size: clamp(1.5rem, 3.8vw, 2.4rem);
       font-weight: 900;
       letter-spacing: -0.03em;
@@ -526,9 +530,9 @@
     .plan-button.active,
     .calendar-cell.active,
     .slot-button.active {
-      background: var(--accent);
+      background: var(--gren);
       color: #fffaf7;
-      border-color: var(--accent);
+      border-color: var(--gren);
     }
 
     .calendar-days,
@@ -652,7 +656,6 @@
         margin-left: -18px;
         margin-right: -18px;
       }
-
       .hero-actions,
       .plan-grid,
       .slot-grid,
@@ -682,7 +685,7 @@
         <a href="#booking">Booking</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="button button-primary" href="#booking">Book Now</a>
+      <a class="button button-primary btncol" href="#booking">Book Now</a>
     </header>
 
     <section class="hero">
@@ -693,7 +696,7 @@
           2x CDJ-3000 + DJM-V10. Private room, pro equipment, fast booking, Santa Monica.
         </p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#booking">Book Now</a>
+          <a class="button button-primary btncol" href="#booking">Book Now</a>
           <a class="button button-secondary" href="#setup">View Setup</a>
         </div>
       </div>
@@ -953,7 +956,7 @@
               <p class="eyebrow">Selected</p>
               <strong id="selected-booking">Studio Hour · 1 Hour · March 21 · 12:00 · $40</strong>
             </div>
-            <a class="button button-primary" href="#contact">Book Now</a>
+            <a class="button button-primary btncol" href="#contact">Book Now</a>
           </div>
         </div>
 
@@ -1006,7 +1009,7 @@
             <input id="notes" name="notes" type="hidden">
 
             <div class="hero-actions" style="margin-top:20px;">
-              <button class="button button-primary" id="booking-submit" type="submit">Book Now</button>
+              <button class="button button-primary btncol" id="booking-submit" type="submit">Book Now</button>
             </div>
           </form>
         </div>
